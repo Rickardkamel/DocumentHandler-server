@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InfoFlexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ARTIKLAR">
+          <Key>
+            <PropertyRef Name="ARTNR" />
+          </Key>
+          <Property Name="ARTNR" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TEXT" Type="varchar" MaxLength="100" />
+          <Property Name="SOKTEXT2" Type="varchar" MaxLength="100" />
+          <Property Name="unTextGroup" Type="varchar" MaxLength="100" />
+          <Property Name="KLASS" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="KUNDER">
+          <Key>
+            <PropertyRef Name="KUNDNR" />
+          </Key>
+          <Property Name="KUNDNR" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NAMN" Type="varchar" MaxLength="100" />
+          <Property Name="ORGNR" Type="varchar" MaxLength="100" />
+          <Property Name="TEL" Type="varchar" MaxLength="100" />
+          <Property Name="LevNamn" Type="varchar" MaxLength="100" />
+          <Property Name="LevADR" Type="varchar" MaxLength="100" />
+          <Property Name="LevPOSTADR" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="InfoFlexModelStoreContainer">
+          <EntitySet Name="ARTIKLAR" EntityType="Self.ARTIKLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KUNDER" EntityType="Self.KUNDER" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InfoFlexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ARTIKLAR">
+          <Key>
+            <PropertyRef Name="ARTNR" />
+          </Key>
+          <Property Name="ARTNR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SOKTEXT2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="unTextGroup" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KLASS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KUNDER">
+          <Key>
+            <PropertyRef Name="KUNDNR" />
+          </Key>
+          <Property Name="KUNDNR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAMN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ORGNR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TEL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LevNamn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LevADR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LevPOSTADR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="InfoFlexEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ARTIKLAR" EntityType="Self.ARTIKLAR" />
+          <EntitySet Name="KUNDER" EntityType="Self.KUNDER" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InfoFlexModelStoreContainer" CdmEntityContainer="InfoFlexEntities">
+          <EntitySetMapping Name="ARTIKLAR">
+            <EntityTypeMapping TypeName="InfoFlexModel.ARTIKLAR">
+              <MappingFragment StoreEntitySet="ARTIKLAR">
+                <ScalarProperty Name="KLASS" ColumnName="KLASS" />
+                <ScalarProperty Name="ARTNR" ColumnName="ARTNR" />
+                <ScalarProperty Name="TEXT" ColumnName="TEXT" />
+                <ScalarProperty Name="SOKTEXT2" ColumnName="SOKTEXT2" />
+                <ScalarProperty Name="unTextGroup" ColumnName="unTextGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KUNDER">
+            <EntityTypeMapping TypeName="InfoFlexModel.KUNDER">
+              <MappingFragment StoreEntitySet="KUNDER">
+                <ScalarProperty Name="KUNDNR" ColumnName="KUNDNR" />
+                <ScalarProperty Name="NAMN" ColumnName="NAMN" />
+                <ScalarProperty Name="ORGNR" ColumnName="ORGNR" />
+                <ScalarProperty Name="TEL" ColumnName="TEL" />
+                <ScalarProperty Name="LevNamn" ColumnName="LevNamn" />
+                <ScalarProperty Name="LevADR" ColumnName="LevADR" />
+                <ScalarProperty Name="LevPOSTADR" ColumnName="LevPOSTADR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
